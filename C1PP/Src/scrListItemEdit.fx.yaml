@@ -1,0 +1,77 @@
+scrListItemEdit As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    lblScrTitle02 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =47
+        Size: =16
+        Text: ="Edit SharePoint list item"
+        Width: =637
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    lblListItemTitle As label:
+        FontWeight: =FontWeight.Bold
+        Text: ="Title List Item"
+        X: =40
+        Y: =177
+        ZIndex: =2
+
+    lblListItemDesc As label:
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Text: ="Description List Item"
+        Width: =212
+        X: =40
+        Y: =267
+        ZIndex: =3
+
+    txtListItemTitle As text:
+        Default: =galItemOverview.Selected.lblTitle
+        Height: =50
+        Width: =1082
+        X: =40
+        Y: =217
+        ZIndex: =4
+
+    txtListItemDesc As text:
+        Default: =galItemOverview.Selected.Description
+        Height: =122
+        Mode: =TextMode.MultiLine
+        Width: =1082
+        X: =40
+        Y: =312
+        ZIndex: =5
+
+    btnListItemEdit As button:
+        Height: =66
+        OnSelect: |-
+            =Patch(
+                'C1PP - Save to SharePoint',
+                LookUp('C1PP - Save to SharePoint', ID = galItemOverview.Selected.ID),
+                {Title:txtListItemTitle.Text, Description:txtListItemDesc.Text}
+            );
+            
+            Navigate(scrListItemOverview, ScreenTransition.Fade)
+        Text: ="Save Changes"
+        Tooltip: ="Save the Changes to this SharePoint List Item"
+        X: =962
+        Y: =482
+        ZIndex: =6
+
+    lblListItemVerHistNr02 As label:
+        Text: =galItemOverview.Selected.'Version number'
+        X: =40
+        Y: =482
+        ZIndex: =7
+
+    btnCancel01 As button:
+        Height: =66
+        OnSelect: =Navigate(scrListItemOverview, ScreenTransition.Fade)
+        Text: ="Cancel Changes"
+        Tooltip: ="Cancel the Changes to this SharePoint List Item and return to overview"
+        X: =756
+        Y: =482
+        ZIndex: =8
+

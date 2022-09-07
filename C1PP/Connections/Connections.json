@@ -1,0 +1,30 @@
+{
+  "4f61a466-bec6-4010-a6eb-d8bfa9b1c791": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1591/1.0.1591.2961/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://fogsoftwaregroup.sharepoint.com/sites/MircrosoftTeams": {
+        "dataSources": {
+          "C1PP - Save to SharePoint": {
+            "tableName": "8ccb88aa-5043-4f30-a066-8320fe787348"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "C1PP - Save to SharePoint"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "4f61a466-bec6-4010-a6eb-d8bfa9b1c791"
+  }
+}

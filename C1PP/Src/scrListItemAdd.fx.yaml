@@ -1,0 +1,70 @@
+scrListItemAdd As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+
+    lblScrTitle03 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =47
+        Size: =16
+        Text: ="Add SharePoint list item"
+        Width: =637
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    lblListItemTitle_1 As label:
+        FontWeight: =FontWeight.Bold
+        Text: ="Title List Item"
+        X: =40
+        Y: =177
+        ZIndex: =2
+
+    lblListItemDesc_1 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =45
+        Text: ="Description List Item"
+        Width: =212
+        X: =40
+        Y: =267
+        ZIndex: =3
+
+    txtListItemTitle_1 As text:
+        Default: =
+        Height: =50
+        Width: =1082
+        X: =40
+        Y: =217
+        ZIndex: =4
+
+    txtListItemDesc_1 As text:
+        Default: =
+        Height: =122
+        Mode: =TextMode.MultiLine
+        Width: =1082
+        X: =40
+        Y: =312
+        ZIndex: =5
+
+    btnListItemEdit_1 As button:
+        Height: =66
+        OnSelect: |-
+            =Patch(
+                'C1PP - Save to SharePoint',
+                Defaults('C1PP - Save to SharePoint'),
+                {Title:txtListItemTitle_1.Text, Description:txtListItemDesc_1.Text}
+            );
+            
+            Navigate(scrListItemOverview, ScreenTransition.Fade)
+        Text: ="Save Changes"
+        X: =962
+        Y: =482
+        ZIndex: =6
+
+    btnCancel02 As button:
+        Height: =66
+        OnSelect: =Navigate(scrListItemOverview, ScreenTransition.Fade)
+        Text: ="Cancel Changes"
+        Tooltip: ="Cancel the Changes to this SharePoint List Item and return to overview"
+        X: =762
+        Y: =482
+        ZIndex: =7
+
